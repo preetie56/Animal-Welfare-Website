@@ -1,0 +1,136 @@
+/* Basic Reset & Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: default; /* Default cursor for general elements */
+}
+
+:root {
+    --color-brand-primary: #4070f4;
+    --color-text-light: #555;
+    --color-brand-accent-bg: #eaf5fe;
+    --s1: 1.6rem; /* Base spacing unit */
+    --s2: 2.24rem;
+    --s3: 3.14rem;
+    --s4: 4.4rem;
+    --s5: 6.16rem;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Section Styling */
+.c-section {
+    padding: var(--s2) var(--s3); /* Reduced top padding to move content up */
+    text-align: center;
+    max-width: 100%; /* Allow section to take full width */
+    margin: 0 auto; /* Center the section content */
+}
+
+.c-section__title {
+    margin-bottom: var(--s3);
+    font-size: var(--s4);
+    color: #333;
+}
+
+.c-section__title span {
+    color: var(--color-brand-primary);
+    font-size: var(--s5);
+    text-transform: uppercase;
+    display: block;
+    font-weight: bold;
+}
+
+/* Services Grid Styling */
+.c-services {
+    list-style: none;
+    display: grid;
+    gap: var(--s3); /* Gap between grid items */
+    /* Force 4 columns always. Items will shrink or cause horizontal scroll. */
+    grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Each item will be at least 250px wide */
+    justify-content: center; /* Center items within the grid container */
+    padding: var(--s3); /* Add some internal padding */
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Adjust min-width for very small screens if necessary, but maintain 4 columns */
+@media (max-width: 1024px) {
+    .c-services {
+        /* On smaller screens, allow items to shrink more, but still maintain 4 columns */
+        grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Reduced min-width */
+    }
+}
+
+/* Service Item Styling */
+.c-services__item {
+    background-color: #fff;
+    padding: var(--s4);
+    border-radius: var(--s1);
+    box-shadow: 0 0 var(--s2) rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer; /* Pointer for the entire service item */
+    /* Ensure items don't become too small, this works with minmax in grid-template-columns */
+    min-width: 250px; /* Base min-width for each item */
+}
+
+.c-services__item:hover {
+    background-color: var(--color-brand-accent-bg);
+    transform: translateY(-5px);
+    box-shadow: 0 5px var(--s3) rgba(0, 0, 0, 0.1);
+}
+
+.c-services__item h3 {
+    font-size: var(--s3);
+    margin-bottom: var(--s2);
+    color: var(--color-brand-primary);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.c-services__item p {
+    font-size: var(--s1);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* Navbar Styling */
+#navbar {
+    text-align: center;
+    padding: var(--s2);
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+#main-page-link {
+    text-decoration: none;
+    color: #7c86f8;
+    font-weight: bold;
+    font-size: var(--s2);
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+#main-page-link:hover {
+    color: var(--color-brand-primary);
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--color-brand-primary);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: var(--s4);
+}
